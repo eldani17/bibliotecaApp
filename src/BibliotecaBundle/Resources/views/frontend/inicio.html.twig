@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block contenidoIzquierdo %}
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-lg-3 col-md-4 col-sm-12">
+      {{ include('buscador.html.twig', {'titulo': 'AUTOR'}) }}
+
+      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ include('menu.html.twig', {'titulo': 'AUTOR'}) }}
+      {% endif %}
+
+    </div>
+{% endblock %}
+
+{% block contenidoDerecho %}
+    <div class="col-lg-9 col-md-8 col-sm-12">
+      <div class="row">
+        <div class="espacio">
+        </div>
+        {% for libro in libros %}
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card h-100">
+              <a href="{{ path('libro_detalle_frontend', { 'id': libro.id }) }}"><img class="card-img-top portada" src="{{libro.foto}}" alt="{{libro.titulo}}"></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a class="link-bilio" href="{{ path('libro_detalle_frontend', { 'id': libro.id }) }}">{{ libro.titulo }}</a>
+                </h4>
+                {% for autor in libro.autores %}
+                <h5>{{ autor.apellido}} {{ autor.nombre }}</h5>
+                {% endfor %}
+                <p class="descripcion">{{libro.isbn}}</p>
+                <p class="descripcion">{{libro.idioma}}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+{% endblock %}

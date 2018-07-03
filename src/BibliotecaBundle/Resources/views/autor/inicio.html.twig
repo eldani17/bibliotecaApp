@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block contenidoDerecho %}
+  <div class="col-lg-9 col-md-8 col-sm-12">
+
+    <div class="row separacionResponsiva">
+      <div class="col-lg-12">
+        <a class="btn btn-success" href="{{ path('autor_crear') }}">Crear un nuevo autor</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Lista de Autores</h3>
+
+        <table class="table table-hover table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th scope="">Nombre</th>
+              <th scope="">Apellido</th>
+              <th scope=""></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for autor in autores %}
+            <tr scope="row">
+              <td><a class="link-bilio" href="{{ path('autor_mostrar', { 'id': autor.id }) }}">{{ autor.nombre }}</a></td>
+              <td>{{autor.apellido}}</td>
+              <td>
+                <a class="btn btn-warning" href="{{ path('autor_editar', { 'id': autor.id }) }}">Editar</a>
+                <a class="btn btn-danger" href="{{ path('autor_borrar', { 'id': autor.id }) }}">Borrar</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- /.col-lg-9 -->
+{% endblock %}

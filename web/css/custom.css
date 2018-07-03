@@ -1,0 +1,163 @@
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+@media (max-width: 760px){
+  .separacionResponsiva{
+    margin-top: 1em;
+  }
+}
+/* PORTADA*/
+  .descripcion{
+    margin:0px;
+  }
+
+  .portada{
+    height: 18em;
+  }
+/* FIN PORTADA*/
+
+/* COLORES DE LA FACU */
+  .biblio{
+    background: #A9191B !important;
+    color:#fff;
+  }
+
+  .bibliosecu{
+    background: #333333 !important;
+    color:#fff;
+  }
+
+  /* MENU*/
+  a.list-group-item.bibliosecu:hover {
+    color: #A9191B;
+    background: #fff !important;
+  }
+
+  .navbar-nav .nav-link {
+    color: #fff !important;
+  }
+  /* FIN MENU*/
+  /* ICONOS*/
+   .crear{
+     color:green;
+   }
+
+   .editar{
+     color:yellow;
+   }
+
+   .borrar{
+     color:red;
+   }
+  /* FIN ICONOS*/
+
+  /* INPUT*/
+  .form-control:focus {
+    color: #495057 !important;
+    background-color: #fff !important;
+    border-color: #A9191B !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(169,25,27,.25);
+  }
+  /* FIN INPUT*/
+
+  /* BOTON */
+  .btn-biblio{
+    color: #fff;
+    background-color: #A9191B;
+    border-color: #A9191B;
+  }
+
+  .btn-biblio:focus, .btn-biblio:hover {
+    text-decoration: none;
+    color: #A9191B;
+    background-color: #fff;
+    border-color: #A9191B;
+  }
+  .btn.focus, .btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(169,25,27,.25);
+  }
+  /*FIN BOTON*/
+
+  /* INICIO LINK*/
+  .link-bilio{
+    color: #A9191B;
+  }
+  .link-bilio:hover {
+    color: #A9191B;
+  }
+  /* FIN LINK*/
+/* FIN COLORES DE LA FACU*/
+
+.separacionlista{
+  padding-left: 0px;
+  margin: 0px;
+}
+
+.hidden {
+  display: none;
+}
+
+.espacio{
+  display: inline-block;
+  height: : 1.5em;;
+}
+
+.bienvenido-usuario{
+  color: white;
+}
+
+.buscador{
+  margin-bottom: 1.5em;
+}
+
+/* INICIO LOGIN*/
+.fos_user_resetting_request{
+  width: 100%;
+  max-width: 430px;
+  padding: 15px;
+  margin: auto;
+}
+
+.fos_user_resetting_request .btn-biblio{
+  margin-top: 0.7em;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+  text-align: left;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/* FIN LOGIN*/

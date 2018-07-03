@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block contenidoIzquierdo %}
+
+  <!-- Sidebar Widgets Column -->
+  <div class="col-lg-3 col-md-4 col-sm-12">
+    {{ include('buscador.html.twig') }}
+
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+      {{ include('menu.html.twig') }}
+    {% endif %}
+
+  </div>
+{% endblock %}
+
+{% block contenidoDerecho %}
+  {{ include('@Biblioteca/autor/detalle.html.twig', {'tipo': 'frontend'}) }}
+{% endblock %}

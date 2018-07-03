@@ -1,0 +1,48 @@
+<form action="{{ path('inicio') }}" method="post">
+  <!-- Search Widget -->
+  <div class="card buscador">
+    <h5 class="card-header bibliosecu">Busqueda de libro</h5>
+    <div class="card-body">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="ingrese descripcion" id="texto" name="texto">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary btn-biblio" type="submit">Buscar</button>
+        </span>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="list-unstyled mb-0">
+            <li>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="todo" checked>Todo
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="titulo">Titulo del libro
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="autor">Autor
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" id="radio3" name="optradio" value="categoria">Categoria
+                </label>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

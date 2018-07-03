@@ -1,0 +1,30 @@
+<div class="col-lg-9 col-md-8 col-sm-12">
+  <div class="row separacionResponsiva">
+    <div class="col-lg-6">
+      <div class="card">
+        <img class="card-img-top" src="{{libro.foto}}" alt="{{libro.titulo}}">
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{libro.titulo}}</h5>
+          {% for autor in libro.autores %}
+            <a href="{{ path('autor_detalle_frontend', { 'id': autor.id }) }}" class="card-link link-bilio">{{ autor.apellido}} {{ autor.nombre }}</a>
+          {% endfor %}
+          <h6 class="card-subtitle mb-2 text-muted">{{libro.isbn}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{libro.edicion}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{libro.editorial}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{libro.idioma}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {% for categoria in libro.categorias %}
+              {{categoria.nombre}}
+            {% endfor %}
+          </h6>
+          <p class="card-text">{{libro.descripcion}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.col-lg-9 -->

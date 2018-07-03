@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+  {% block contenidoDerecho %}
+    <div class="col-lg-12 col-lg-offset-2">
+      <!-- ESTO SOLO ES PARA MOSTRAR LOS MSJ DE FLASH, POR EL MOMENTO NO VEO NADA -->
+      {% if app.request.hasPreviousSession %}
+          {% for type, messages in app.session.flashbag.all() %}
+              {% for message in messages %}
+                  <div class="flash-{{ type }}">
+                      {{ message }}
+                  </div>
+              {% endfor %}
+          {% endfor %}
+      {% endif %}
+
+      <!-- ESTO SOLO ES PARA MOSTRAR LOS INPUT DE NAME PASSWORD Y BOTON -->
+      <div>
+          {% block fos_user_content %}
+          {% endblock fos_user_content %}
+      </div>
+    </div>
+  {% endblock %}
