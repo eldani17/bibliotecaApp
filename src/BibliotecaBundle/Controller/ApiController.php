@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use BibliotecaBundle\Entity\Libro;
 
 class ApiController extends Controller
 {
@@ -54,15 +55,18 @@ class ApiController extends Controller
        ->setParameter('titulo', '%'.$buscar.'%')
        ->getQuery()
        ->getResult();
-
     // busco por nombre o apellido de autor
     $query = $em->createQuery("SELECT l FROM BibliotecaBundle\Entity\Libro l JOIN l.autores a WHERE a.nombre LIKE :buscar or a.apellido LIKE :buscar");
     $query->setParameter('buscar', '%'.$buscar.'%');
     $resultado = $query->getResult();
 
+
     if (count($resultado)>0){
       foreach ($resultado as $r) {
-        array_push($libros,$r);
+        $libroEnLista = $this->buscarLibroEnLista($libros,$r);
+        if (!$libroEnLista){
+          array_push($libros,$r);
+        }
       }
     }
 
@@ -73,7 +77,10 @@ class ApiController extends Controller
 
     if (count($resultado)>0){
       foreach ($resultado as $r) {
-        array_push($libros,$r);
+        $libroEnLista = $this->buscarLibroEnLista($libros,$r);
+        if (!$libroEnLista){
+          array_push($libros,$r);
+        }
       }
     }
 
@@ -94,5 +101,16 @@ class ApiController extends Controller
     $response->headers->set('Access-Control-Allow-Origin', '*');
 
     return $response;
+  }
+
+  public function buscarLibroEnLista($libros, $libro){
+    //echo ("hola");
+    //die();
+    foreach ($libros as $l) {
+      if ($l->getId() == $libro->getId()){
+        return true;
+      }
+    }
+    return false;
   }
 }
